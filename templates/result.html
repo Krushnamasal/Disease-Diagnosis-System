@@ -1,0 +1,130 @@
+{% extends "navebar_out.html" %}
+{% block title %}Diagnosis{% endblock %}
+{% block content %}
+<br><br><br>
+<div class="container" style="margin: auto auto;">
+    <div class="card justify-content-md-center">
+      <!-- <h5 class="card-header">Featured</h5> -->
+          <div class="card-body" style="padding: 30px 40px;">
+              <br>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            <br>
+            <h5 class="card-title">Results</h5>
+            <div class="container" style="margin : 50px 50px;">
+
+            <div class="container" style="margin : 15px 15px; padding-right: 100px;">
+                <div class="row align-items-end">
+                  <div class="container" style="margin : 15px 15px;">
+                    <div class="row align-items-end"> 
+                    <div class="col-sm-3">
+                      <h5>Name : </h5>
+                    </div>
+                    <div class="col-sm-9">
+                      <h5>{{data['name'][0] | upper}}{{data['name'][1:]}}</h5>
+                    </div>  
+                  </div>
+                  </div> 
+                  <div class="container" style="margin : 5px 15px;">
+                    <div class="row align-items-end"> 
+                    <div class="col-sm-3">
+                      <h6>DOB : </h6>
+                    </div>
+                    <div class="col-sm-9">
+                      <h6>{{data['dob']}}</h6>
+                    </div>  
+                  </div>
+                  </div>
+                  <div class="container" style="margin : 5px 15px;">
+                    <div class="row align-items-end"> 
+                    <div class="col-sm-3">
+                      <h6>Gender : </h6>
+                    </div>
+                    <div class="col-sm-9">
+                      <h6>{{data['gender'][0] | upper}}{{data['gender'][1:]}}</h6>
+                    </div>  
+                  </div>
+                  </div>
+                  <div class="container" style="margin : 5px 15px;">
+                    <div class="row align-items-end"> 
+                    <div class="col-sm-3">
+                      <h6>Blood Group : </h6>
+                    </div>
+                    <div class="col-sm-9">
+                      <h6>{{data['blood_group']}}</h6>
+                    </div>  
+                  </div>
+                  </div>
+                  <div class="container" style="margin : 5px 15px;">
+                    <div class="row align-items-end"> 
+                    <div class="col-sm-3">
+                      <h6>Diabetes : </h6>
+                    </div>
+                    <div class="col-sm-9">
+                      <h6>{{data['diabetes']}}</h6>
+                    </div>  
+                  </div>
+                  </div>
+                  <div class="container" style="margin : 5px 15px;">
+                    <div class="row align-items-end"> 
+                    <div class="col-sm-3">
+                      <h6>History of Alcohal Consumption : </h6>
+                    </div>
+                    <div class="col-sm-9">
+                      <h6>{{data['history_of_alcohol_consumption']}}</h6>
+                    </div>  
+                  </div>
+                  </div>
+                    <h6 class="card-text" style="margin-top: 20px; margin-bottom: 20px;">&emsp;The probable diagnosis says it could be <b>{{pred}}</b></h5><br>
+                      <div class="container" style="margin : 5px 15px;">
+                        <div class="row align-items-start"> 
+                        <div class="col-sm-3">
+                          <h6>Information : </h6>
+                        </div>
+                        <div class="col-sm-9">
+                          <p style="text-align: justify;">{{info}}</p>
+                        </div>  
+                      </div>
+                      </div>
+                      <div class="container" style="margin : 5px 15px;">
+                        <div class="row align-items-start"> 
+                        <div class="col-sm-3">
+                          <h6>Cause : </h6>
+                        </div>
+                        <div class="col-sm-9">
+                          <p style="text-align: justify;">{{cause}}</p>
+                        </div>  
+                      </div>
+                      </div>
+                      <div class="container" style="margin : 5px 15px;">
+                        <div class="row align-items-start"> 
+                        <div class="col-sm-3">
+                          <h6>Recommended Doctors : </h6>
+                        </div>
+                        <div class="col-sm-9">
+
+                          {% for i in range(doc['doctor names'] | length) %}
+                          <div class="card" style="flex-direction: row;margin-bottom: 15px; padding: 10px;">
+    
+                            <div class="card-body col-sm-9">
+                                <h6 style="text-align: left;"><b>Name : {{doc['doctor names'][i]}}</b></h5>
+                                <p style="text-align: left;">{{doc['doctor qualifications'][i]}}</p>
+                                <p class="card-text" style="text-align: justify; "><b>Specialization : </b>{{doc['doctor specializations'][i]}} <br> <b>Experience : </b>{{doc['doctor exp'][i]}} Years</b> <br> {{doc['doctor information'][i]}}</p>
+                            </div>
+                          </div>
+                          {% endfor %}
+                        </div>  
+                      </div>
+                      </div>
+                </div>
+            </div>
+
+          </div>  
+          
+          <a href="./home" class="btn btn-primary d-grid gap-3 col-4 mx-auto" style="width:20%">Go to Home</a>
+        </div>  
+    </div>
+</div>
+
+{% endblock %}

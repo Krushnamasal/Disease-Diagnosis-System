@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+  <br />
+  <div class="container rounded bg-white mt-5">
+    <div class="row">
+        <div class="col-md-4 border-right">
+          <br>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+              {% if user['gender'] == "male" %}
+                <img class="rounded-circle mt-5" src="../static/images/male_user.jpg" width="250" >
+              {% else %}
+                <img class="rounded-circle mt-5" src="../static/images/female_user.jpg" width="250" >
+              {% endif %}
+            </div>
+        </div>
+        
+        <div class="col-md-8">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex flex-row align-items-center back">
+                      <button class="btn btn-primary">
+                      <a href="./update?_id={{ user['_id'] }}" style="color: white; text-decoration: none;">
+                        <h6 class="text-right">
+                           Edit Profile 
+                        </h6>
+                      </a>
+                    </button>
+                    </div>
+                    <button class="btn btn-primary">
+                      <a href="./home" style="color: white; text-decoration: none;">
+                         <h6>Back to home</h6>
+                      </a>
+                    </button>
+                    
+                </div>
+                <br><br>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                      <label for="name">Name : </label>
+                    </div>
+                    <div class="col-md-8 card">
+                      <p name="name" class="card-text" style="padding:5px;">{{user.name}}</p>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-md-4">
+                    <label for="name">Email : </label>
+                  </div>
+                  <div class="col-md-8 card">
+                    <p name="name" class="card-text" style="padding:5px;">{{user.email}}</p>
+                  </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-4">
+                  <label for="name">Phone No : </label>
+                </div>
+                <div class="col-md-8 card">
+                  <p name="name" class="card-text" style="padding:5px;">{{user.phone}}</p>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-4">
+                  <label for="name">DOB : </label>
+                </div>
+                <div class="col-md-8 card">
+                  <p name="name" class="card-text" style="padding:5px;">{{user.dob}}</p>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-4">
+                  <label for="name">Gender : </label>
+                </div>
+                <div class="col-md-8 card">
+                  <p name="name" class="card-text" style="padding:5px;">{{user.gender[0]|upper}}{{user.gender[1:]}}</p>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-4">
+                  <label for="name">Blood Group : </label>
+                </div>
+                <div class="col-md-8 card">
+                  <p name="name" class="card-text" style="padding:5px;">{{user.blood_group}}</p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+  {% endblock %}
